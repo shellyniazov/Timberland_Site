@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="FindAstore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
+    <script>
+        function Delete(e) {
+            let items = [];
+            JSON.parse(localStorage.getItem('items')).map(data => {
+                if (data.id != e.parentElement.parentElement.children[0].textContent) {
+
+                    items.push(data);
+
+                }
+            });
+            localStorage.setItem('items', JSON.stringify(items));
+            window.location.reload();
+        };
+
+
+
+        function DeleteZX(x) {
+            let itemsZ = [];
+            JSON.parse(localStorage.getItem('itemsZ')).map(data => {
+                if (data.idZ != x.parentElement.parentElement.children[0].textContent) {
+
+                    items.push(data);
+
+                }
+            });
+            localStorage.setItem('itemsZ', JSON.stringify(itemsZ));
+            window.location.reload();
+        };
+    </script>
+</head>
+
+<body>
+
+
+    <div class="first">
+
+        <div class="iconAddres" onclick="openLogin()">
+            <a href="#">
+                <p><i class="fa fa-address-book" style="font-size:20px"></i>
+                    Login
+                </p>
+            </a>
+        </div>
+
+
+        <div class="iconShop" onclick="openTerms()">
+            <a href="#">
+                <p><i class='fas fa-shipping-fast' style='font-size:20px'></i>
+                    Shipping Terms
+                </p>
+            </a>
+        </div>
+
+        <div class="iconPhone" onclick="openContact()">
+            <a href="#">
+                <p><i class="fa fa-phone" style='font-size:20px'></i>
+                    Contact
+                </p>
+            </a>
+        </div>
+
+        <div class="iconMap">
+            <a href="#">
+                <div class="icomF iconShopping159 ">
+                    <i class="fa fa-heart-o" style="color:red"></i>
+                    <p class="cart-total1 cart-total-2">0</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="form__group field">
+            <input type="text" class="form__field" id="name" placeholder="Serach:">
+            <label for="name" class="form__label">
+            </label>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- כניסה למפה מציאת חנות -->
+
+    <div id="ButtonMap4">
+        <div class="modal">
+            <div class="close-button" onclick="closeFormB()">x</div>
+            <div class="titleMap">
+                <h1><span>"Map Shop"</span></h1>
+            </div>
+            <div class="details-on-map show-map">
+                <div class="paper-map">
+                    <div class="map-side"></div>
+                    <div class="map-side"></div>
+                    <div class="map-side"></div>
+                    <div class="map-side"></div>
+                </div>
+                <div id="map"></div>
+            </div>
+
+            <div class="form-button" onclick="closeFormB()">Go</div>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbG-3-9ajB7-W5-V7aDF05U33tfN9nXd0&callback=initMap"
+        async defer></script>
+
+
+
+
+    <!-- כניסה משתמש פןפאפ -->
+
+    <div id="ButtonLogin1">
+        <div class="modal">
+            <div class="close-button" onclick="closeForm()">x</div>
+            <div class="form-title">Sign In</div>
+            <div class="input-group">
+                <input type="text" id="name" onblur="checkInput(this)" />
+                <label for="name">Username</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" onblur="checkInput(this)" />
+                <label for="password">Password</label>
+            </div>
+            <div class="form-button" onclick="closeForm()">Go</div>
+        </div>
+    </div>
+
+    <!-- כניסה דף קשר פןפאפ -->
+
+    <div id="ButtonContact2">
+        <div class="modal">
+            <div class="close-button" onclick="closeFormZ()">x</div>
+            <div class="form-title">Contact</div>
+            <div class="input-group">
+                <input type="text" id="name" onblur="checkInput(this)" />
+                <label>name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="name" onblur="checkInput(this)" />
+                <label>Company Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" onblur="checkInput(this)" />
+                <label>E-Mail Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" onblur="checkInput(this)" />
+                <label>Phone Number</label>
+            </div>
+
+            <div class="input-group">
+                <input id="password" onblur="checkInput(this)" />
+                <label>Comment</label>
+            </div>
+
+
+            <div class="form-button" onclick="closeFormZ()">Send</div>
+
+            <div class="Phone">
+                <p>Phone Shop:054-8642464</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- כניסה הובלות פןפאפ -->
+
+    <div id="ButtonTerms3">
+        <div class="modal">
+            <div class="close-button" onclick="closeFormX()">x</div>
+
+            <h2> Free shipping to the whole country!<br>Divisional areas </h2>
+            <div class="services">
+                <div class="service-1">
+                    <div class="shapes">
+                        <div class="shape-1 right"></div>
+                        <div class="shape-2 right"></div>
+                        <div class="shape-3 right"></div>
+                    </div>
+
+                    <div class="description">
+                        <h3> Area - A </h3>
+                        <p>
+                            <p> Tel Aviv, Givatayim, Ramat Gan, Bnei Brak, Kfar Saba, Raanana, Netanya, Udim, Yakum,
+                                Gaash,
+                                Shefayim.
+                                <br>
+                                Delivery on the same day - for customers until +/- 13:00 for free delivery - minimum
+                                order
+                                99
+                                NIS </p>
+                        </p>
+
+                    </div>
+                    <div class="shapes">
+                        <div class="shape-4"></div>
+                        <div class="shape-5"></div>
+                        <div class="shape-6"></div>
+                    </div>
+                </div>
+
+                <div class="service-1">
+                    <div class="shapes">
+                        <div class="shape-1 right"></div>
+                        <div class="shape-2 right"></div>
+                        <div class="shape-3 right"></div>
+                    </div>
+
+                    <div class="description">
+                        <h3> Area - B </h3>
+                        <p>Rishon Lezion, Holon, Bat Yam
+                            (For nearby cities check with the store representative)
+                            Delivery on Mondays, Wednesdays, Fridays for customers until +/- 13:00 Free delivery <br>
+                            minimum order 149 NIS</p>
+                    </div>
+                    <div class="shapes">
+                        <div class="shape-4"></div>
+                        <div class="shape-5"></div>
+                        <div class="shape-6"></div>
+                    </div>
+                </div>
+
+                <div class="service-1">
+                    <div class="shapes">
+                        <div class="shape-1 right"></div>
+                        <div class="shape-2 right"></div>
+                        <div class="shape-3 right"></div>
+                    </div>
+
+                    <div class="description">
+                        <h3> Area - C </h3>
+                        <p>* Other parts of the country *<br>
+                            Order will be delivered up to 4 business days
+                            Golan Heights - The order will be delivered up to 7 business days
+                            For free. <br> maximum weight for order 20 kg (per 279 NIS)
+                        </p>
+                    </div>
+                    <div class="shapes">
+                        <div class="shape-4"></div>
+                        <div class="shape-5"></div>
+                        <div class="shape-6"></div>
+                    </div>
+                </div>
+
+
+                <div class="infoService">
+                    <p>Eilat / Arava / Area defined as exceptional in the Cheetah company and localities beyond the
+                        Green Line - the order will be delivered up to 7 business days (with a courier company
+
+                        For free delivery - minimum order 499 NIS - maximum weight for order 20 kg (per 499 NIS)
+
+                        * Delivery times do not include Friday, Saturday and holidays *</p><br>
+
+
+                    <h5>It is best to place an order by phone with a store representative and avoid misunderstandings.
+                        In the case of returning / exchanging products - in area C, the customer will bear a
+                        cancellation and delivery fee of NIS 79<br>
+                        <h6>* Delivery policy (delivery regulations - distribution areas and delivery times) is an
+                            integral part of the site's regulations.</h6><br>
+                        <h4>For inquiries or</h4><br>
+                        <h3>For reservations call: 09-8002121</h3>
+                    </h5>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- לוגו,אייקון של הוספה לסל -->
+
+    <div class="container">
+
+        <div class="info">
+
+            <a href="Home1.html"> <img src="images/logo.png"></a>
+
+            <div class="titleShop">
+
+                <h5><span>"Free shipping</span><span>the
+                        whole</span><span>country!</span><br><span>reservations:<br></span><br><span>
+                        (0542546828)-(0541832027)</span></h5>
+            </div>
+
+            <div class="icomShope iconShopping"">
+                <a href=" #"><i class="fa fa-shopping-basket cart-icon3"></i></a>
+                <p class="cart-total cart-total-3">0</p>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <!--=  פןפ אפ של מועדפים -->
+
+    <div class="cartBoxXX">
+        <div class="cartVV">
+            <p class="closeZ">x</p>
+            <img src="https://img.icons8.com/cute-clipart/100/000000/shopping-cart.png" />
+            <h1>Product Card: </h1>
+            <table></table>
+        </div>
+    </div>
+
+
+
+    <!-- פןפ אפ של סל קניות -->
+
+    <div class="cartBox">
+        <div class="cart">
+            <i class="fa fa-close"></i>
+            <img src="https://img.icons8.com/cute-clipart/100/000000/shopping-cart.png" />
+            <h1>Product Card: </h1>
+            <table></table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- תפריט -->
+
+    <div class="menu">
+
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+
+        <ul class="links">
+
+            <li><a href="Cats.html"><img src="images/cat.png"></a></li>
+
+            <li><a href="parrot.html"> <img src="images/parrot19.png"></a></li>
+
+            <li><a href="Fish.html"><img src="images/fish1.png"></a></li>
+
+            <li><a href="Dogs.html"> <img src="images/dogg.png"></a></li>
+
+            <li><a href="hamster.html"> <img src="images/hamster2.png"></a> </li>
+
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- תמונה ראשית -->
+
+
+
+    <div class="info12">
+        <h1>All types of equipment and cat food</h1>
+    </div>
+
+
+
+    <!-- כותרות -->
+
+
+    <div class="title2">
+
+        <div class="container">
+
+            <h2>Cat food - cat food
+            </h2>
+
+            <h6>cat's food
+            </h6>
+
+            <p>cat's food? You're got it right :-) No matter if your cat gets a meal or a snack, it's important that
+                he
+                gets cat food that is both healthy and tasty. At Royal Pet you will find the best brands that
+                produce
+                cat food. Cat food comes in a variety of flavors and ingredients and also as a therapeutic food.
+                That is
+                why it is very important to make sure you choose the right food that you need. We at Royal Pet will
+                be
+                happy to help you tailor the right and healthy food for your cat.</p>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="title11">
+            <h1>By buying a food bag you deserve a benefit!</h1>
+        </div>
+    </div>
+
+
+
+    <div class="bacImage"></div>
+
+
+
+
+
+    <!-- קטגוריה -->
+
+    <div class="BoxCards">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/1.jpg" alt="sample57" />
+                        <figcaption>
+
+                            <h3>Orijen Six Fish</h3>
+
+                            <div class="price">
+                                <h2><span>$28.89</span></h2>
+                            </div>
+
+                            <p>Ultra-premium cat food - suitable for all breeds at all stages of life.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/2.jpg" alt="sample57" />
+                        <figcaption>
+                            <h3> Instinct Chicken</h3>
+
+                            <div class="price">
+                                <h2><span>$19.00</span></h2>
+                            </div>
+
+                            <p>Ultra premium cat food at the highest level in the world!.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                    
+                </div>
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/3.png" alt="sample57" />
+                        <figcaption>
+                            <h3>Boni Cat</h3>
+
+                            <div class="price">
+                                <h2><span>$10.00</span></h2>
+                            </div>
+
+                            <p>Full dry food for yard cats, suitable for all cats, especially delicious.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/4.png" alt="sample57" />
+                        <figcaption>
+                            <h3>Acana wild prairie</h3>
+
+                            <div class="price">
+                                <h2><span>$16.00</span></h2>
+                            </div>
+
+                            <p>Holistic dry food.<br>.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/5.jpg" alt="sample57" />
+                        <figcaption>
+                            <h3>Yabei Pet</h3>
+
+                            <div class="price">
+                                <h2><span>$50.00</span></h2>
+                            </div>
+
+                            <p>Cat toy 2 in 1. A thinking game with the mouse and also a stimulus at the top.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/6.jpg" alt="sample57" />
+                        <figcaption>
+                            <h3>Pudol Doux</h3>
+
+                            <div class="price">
+                                <h2><span>$19.00</span></h2>
+                            </div>
+
+                            <p>All this modern technology just makes people try to do everything at once.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/7.jpg" alt="sample57" />
+                        <figcaption>
+                            <h3>PetEX cat toys</h3>
+
+                            <div class="price">
+                                <h2><span>$1.00</span></h2>
+                            </div>
+
+                            <p>Small mouse toy with bell in the tail PetEX cat toys HFTU-5.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/8.png" alt="sample57" />
+                        <figcaption>
+                            <h3>cat it</h3>
+
+                            <div class="price">
+                                <h2><span>$80.00</span></h2>
+                            </div>
+
+                            <p>A thought game for ten cats will arouse interest and activate the cat's senses.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/9.png" alt="sample57" />
+                        <figcaption>
+                            <h3>Ferplast Atlas 10</h3>
+
+                            <div class="price">
+                                <h2><span>$54.00</span></h2>
+                            </div>
+
+                            <p>Hard plastic carrying cage for cats and dogs of small size made by the Italian.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/10.png" alt="sample57" />
+                        <figcaption>
+                            <h3>Cat Nail Clipper</h3>
+
+                            <div class="price">
+                                <h2><span>$4.00</span></h2>
+                            </div>
+
+                            <p>All this modern technology just makes people try to do everything at once.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+
+
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/11.png" alt="sample57" />
+                        <figcaption>
+                            <h3>Pudol Doux</h3>
+
+                            <div class="price">
+                                <h2><span>$7.00</span></h2>
+                            </div>
+
+                            <p>All this modern technology just makes people try to do everything at once.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="col-sm-6  col-md-4 col-lg-3">
+
+                    <figure class="snip1423">
+                        <img src="images/12z.png" alt="sample57" />
+                        <figcaption>
+                            <h3>PetEx Clumping</h3>
+
+                            <div class="price">
+                                <h2><span>$2.00</span></h2>
+                            </div>
+
+                            <p>Extra scented crystallized sand from the latex company.</p>
+
+                            <a href="" class="add-btn attToCart">Add To Cart</a>
+                            <a href="" class="LovePro attToCart12"><img src="images/favorite.png">add</a>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="bacImage1">
+        <img src="images/catP.png">
+    </div>
+
+
+
+
+
+    <!-- שירות לקוחות -->
+
+    <div class="infoSH">
+
+        <div class="inCon">
+            <img src="images/icon_100.jpg">
+            <p>Satisfaction Guaranteed!</p>
+        </div>
+
+        <div class="inCon">
+            <img src="images/icon_bus.jpg">
+            <p>Convenient payment options</p>
+        </div>
+
+        <div class="inCon">
+            <img src="images/icon_ssl.jpg">
+            <p>Secure purchase</p>
+        </div>
+
+        <div class="inCon">
+            <img src="images/icon_user.jpg">
+            <p>Professional customer service</p>
+        </div>
+
+        <div class="inCon">
+            <img src="images/icon_cards.jpg">
+            <p>Convenient payment options</p>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <img src="images/logo.png">
+            <p class="footer-company-name">made artiom kot This site Shop</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>309 - kfar,
+                        tormos. No. A - 1, Sector - 1</span>
+                    kfar-yona, kfar-yona - 26751</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+972 58624831</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="#">artiomKot@gmail.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About this shop</span>
+                We sell all kinds of products for existing animals, we also have a hairdresser.</p>
+            <div class="footer-icons">
+                <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/explore"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.youtube.com"><i class="fa fa-youtube"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ציאט של עזרה-->
+
+    <section class="chatbox js-chatbox">
+        <div class="chatbox__header">
+            <h3 class="chatbox__header-cta-text"><span class="chatbox__header-cta-icon"><i
+                        class="fas fa-comments"></i></span>Let's chat We Help You :)</h3>
+            <button class="js-chatbox-toggle chatbox__header-cta-btn u-btn"><i class="fas fa-chevron-up"></i></button>
+        </div>
+        <div class="js-chatbox-display chatbox__display">
+
+        </div>
+
+        <form class="js-chatbox-form chatbox__form">
+            <input type="text" class="js-chatbox-input chatbox__form-input" placeholder="Type your message..." required>
+            <button class="chatbox__form-submit u-btn"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="FindAstore.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

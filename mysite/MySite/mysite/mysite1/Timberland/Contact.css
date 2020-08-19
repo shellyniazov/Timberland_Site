@@ -1,0 +1,1032 @@
+
+/* צ'אט */
+.xy {
+  position: relative;
+}
+
+.xy button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  bottom: 18px;
+  right: 10px;
+}
+
+.xy button i {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+}
+
+
+.chat-btn {
+  z-index: 99999;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  background: #e29c1b;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.chat-btn:hover,
+.submit:hover,
+#emoji-btn:hover {
+  opacity: 1;
+}
+
+.chat-popup {
+  z-index: 99999;
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  right: 78px;
+  height: 400px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.5);
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.75rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.show {
+  display: flex;
+}
+
+.chat-area {
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.input-area button i {
+  position: absolute;
+  left: 245px;
+  top: 5px;
+}
+
+.input-area button {
+  width: 5%;
+  padding-right: 10%;
+  background: none;
+}
+
+.income-msg {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.income-msg .msg {
+  background-color: #424242;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+
+.input-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+
+input[type="text"] {
+  width: 100%;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  border-radius: 5px;
+  height: 2.2rem;
+  opacity: 0.7;
+  border: 0;
+  outline: none;
+}
+
+
+.submit {
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+  color: #e29c1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  opacity: 0.7;
+}
+
+
+.out-msg {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.my-msg {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.75rem;
+  padding: 0.5rem;
+  background-color: #ddd;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  word-break: break-all;
+}
+
+
+@media (max-width:500px) {
+
+  .chat-popup {
+    bottom: 120px;
+    right: 10%;
+    width: 80vw;
+  }
+}
+
+
+
+
+
+/* פתיחת עמוד ראשי */
+
+.openPage {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+
+
+
+
+/*  אייקון של חיפוש */
+
+.overlaySearch {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(132, 150, 155, 0.747);
+}
+
+.searchBar {
+  position: relative;
+  top: 46%;
+  width: 80%;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.overlaySearch .hideBtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+  opacity: 0.8;
+}
+
+.overlaySearch .hideBtn:hover {
+  opacity: 1;
+}
+
+.overlaySearch input[type=text1] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 80%;
+  background: white;
+}
+
+.overlaySearch input[type=text1]:hover {
+  background: #f1f1f1;
+}
+
+.overlaySearch button {
+  float: left;
+  width: 20%;
+  padding: 15px;
+  background: #e29c1b;
+  font-size: 17px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.overlaySearch button:hover {
+  opacity: 1;
+}
+
+
+
+
+
+/* אייקונים ראש עמוד */
+
+.iconSignIn a {
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+  font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif
+}
+
+.iconSignIn a:hover {
+  color: #e29c1b
+}
+
+.iconFindStore a {
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+  font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif
+}
+
+.iconFindStore a:hover {
+  color: #e29c1b
+}
+
+
+
+
+.WishList a {
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+  font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif
+}
+
+.WishList a:hover {
+  color: #e29c1b
+}
+
+
+.loveee {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: -50px;
+  margin-left: 55px;
+  color: #e29c1b;
+  position: relative;
+  width: 20%;
+}
+
+
+
+.loveee p {
+  position: absolute;
+  color: rgb(12, 12, 12);
+  font-size: 13px;
+  top: 0;
+  left: 5px;
+  font-weight: bold;
+}
+
+
+.iconCart a {
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+  font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif
+}
+
+.iconCart a:hover {
+  color: #e29c1b
+}
+
+.ciriclee {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: -50px;
+  margin-left: 55px;
+  color: #e29c1b;
+  position: relative;
+  width: 20%;
+}
+
+
+
+.ciriclee p {
+  position: absolute;
+  color: white;
+  font-size: 13px;
+  top: 13px;
+  left: 9px;
+  font-weight: bold;
+}
+
+
+.iconSearch a {
+  cursor: pointer;
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+  font-family: "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif
+}
+
+.iconSearch a:hover {
+  color: #e29c1b
+}
+
+
+.secOpenPage {
+  height: 16vh;
+  background-color: #362d2e;
+  margin-top: -2%;
+}
+
+.secOpenPage li,
+a,
+button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.secOpenPage header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 40px 10%;
+}
+
+
+.logo {
+  margin-top: -2%;
+  cursor: pointer;
+  height: 48px;
+  width: auto;
+}
+
+.nav__links {
+  list-style: none;
+}
+
+.nav__links li {
+  display: inline-block;
+  padding: 0px 30px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.nav__links li a:hover {
+  color: #e29c1b
+}
+
+.menu {
+  display: none;
+  text-decoration: none;
+
+}
+
+.xx a button {
+  text-decoration: none;
+}
+
+.overlay__content {
+  list-style: none;
+}
+
+.overlay__content li a {
+  text-decoration: none;
+}
+
+.secOpenPage button {
+  padding: 9px 25px;
+  background-color: #e29c1b;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  margin-top: -15%;
+}
+
+.secOpenPage button:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 6%;
+}
+
+@media only screen and (max-width: 800px) {
+
+  .nav__links,
+  .cta {
+    display: none;
+  }
+
+  .menu {
+    display: inherit;
+
+  }
+
+}
+
+
+
+
+/* Open Contact + Icons */
+.ContactOpen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 3%;
+  text-transform: uppercase;
+}
+
+.ContactOpen h2 {
+  text-transform: uppercase;
+}
+
+.ContactOpen {
+  padding: 3%;
+  font-size: 17px;
+  line-height: 35px;
+}
+
+.ContactWays {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 6%;
+  margin-bottom: -5%;
+}
+
+
+.ContactChat {
+  width: 150px;
+  height: 140px;
+}
+
+.ContactPhone {
+  width: 150px;
+  height: 140px;
+}
+
+.ContactText {
+  width: 150px;
+  height: 140px;
+}
+
+.ContactChat a {
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.ContactChat a :hover {
+  color: rgb(17, 192, 204);
+  padding: 3%;
+  transition: all 0.4s ease 0s;
+}
+
+
+.ContactPhone a {
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.ContactPhone a :hover {
+  color: rgb(40, 216, 64);
+  padding: 3%;
+  transition: all 0.4s ease 0s;
+}
+
+
+.numberContact p {
+  text-decoration: underline;
+  margin-top: -15%;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+.ContactText a {
+  color: black;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.ContactText a :hover {
+  color: rgb(43, 10, 226);
+  padding: 3%;
+  transition: all 0.4s ease 0s;
+}
+
+
+.SendMail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: -2%;
+  text-transform: uppercase;
+}
+
+.SendMail a {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.SendMail a :hover {
+  color: #e29c1b;
+}
+
+
+
+
+
+/* Contact form */
+:root {
+  --white: #362d2e;
+  --borderFormEls: #362d2e;
+  --bgFormEls: #ffffff;
+}
+
+.my-form {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-family: "Luckiest Guy", cursive;
+}
+
+.my-form a {
+  color: inherit;
+}
+
+.my-form input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.my-form button,
+label {
+  cursor: pointer;
+}
+
+.my-form select {
+  appearance: none;
+}
+
+.my-form select::-ms-expand {
+  display: none;
+}
+
+.my-form select:-moz-focusring {
+  color: transparent !important;
+  text-shadow: 0 0 0 var(--white);
+}
+
+.my-form textarea {
+  resize: none;
+}
+
+.my-form ul {
+  list-style: none;
+}
+
+
+.my-form li,
+.my-form .grid>*:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.my-form select,
+.my-form input,
+.my-form textarea,
+.my-form button {
+  width: 100%;
+  line-height: 1.5;
+  padding: 15px 10px;
+  border: 1px solid var(--borderFormEls);
+  color: #e29c1b;
+  background: var(--bgFormEls);
+  transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
+    transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.my-form textarea {
+  height: 170px;
+}
+
+.my-form ::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+.my-form select:focus,
+.my-form input:focus,
+.my-form textarea:focus,
+.my-form button:enabled:hover,
+.my-form button:focus,
+.my-form input[type="checkbox"]:focus+label {
+  background: #ffffff;
+}
+
+.my-form select:focus,
+.my-form input:focus,
+.my-form textarea:focus {
+  transform: scale(1.02);
+}
+
+.my-form *:required,
+.my-form select {
+  background-repeat: no-repeat;
+  background-position: center right 12px;
+  background-size: 15px 15px;
+}
+
+.my-form *:disabled {
+  cursor: default;
+  filter: blur(2px);
+}
+
+
+
+.my-form .btn-grid {
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.2s;
+}
+
+.my-form button {
+  font-weight: bold;
+}
+
+.my-form button>* {
+  display: inline-block;
+  width: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+
+.my-form button .back {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-110%, -50%);
+}
+
+.my-form button:enabled:hover .back,
+.my-form button:focus .back {
+  transform: translate(-50%, -50%);
+}
+
+.my-form button:enabled:hover .front,
+.my-form button:focus .front {
+  transform: translateX(110%);
+}
+
+
+.my-form input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+.my-form input[type="checkbox"]+label {
+  position: relative;
+  display: inline-block;
+  padding-left: 2rem;
+  transition: background 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.my-form input[type="checkbox"]+label::before,
+.my-form input[type="checkbox"]+label::after {
+  content: '';
+  position: absolute;
+}
+
+.my-form input[type="checkbox"]+label::before {
+  left: 0;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--white);
+}
+
+.my-form input[type="checkbox"]:checked+label::before {
+  background: var(--red);
+}
+
+.my-form input[type="checkbox"]:checked+label::after {
+  left: 7px;
+  top: 7px;
+  width: 6px;
+  height: 14px;
+  border-bottom: 2px solid var(--white);
+  border-right: 2px solid var(--white);
+  transform: rotate(45deg);
+}
+
+
+
+@media screen and (min-width: 600px) {
+  .my-form .grid {
+    display: grid;
+    grid-gap: 1.5rem;
+  }
+
+  .my-form .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .my-form .grid-3 {
+    grid-template-columns: auto auto auto;
+    align-items: center;
+
+  }
+
+  .my-form .grid>*:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .my-form .required-msg {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 541px) {
+  .my-form input[type="checkbox"]+label::before {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .my-form input[type="checkbox"]:checked+label::after {
+    top: 3px;
+  }
+}
+
+
+
+
+
+
+/* Sign in */
+
+.bg-modal {
+  background-color: rgba(132, 150, 155, 0.747);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.modal-contents {
+  width: auto;
+  height: auto;
+  text-align: center;
+  position: relative;
+  border-radius: 4px;
+}
+
+.closeSignIn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 42px;
+  color: rgb(0, 0, 0);
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.signupSection {
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  text-align: center;
+  display: flex;
+  color: white;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.info1 {
+  width: 45%;
+  background: rgba(20, 20, 20, 0.8);
+  padding: 30px 0;
+}
+
+.info1 h2 {
+  padding-top: 30px;
+  font-weight: 300;
+}
+
+.info1 p {
+  font-size: 18px;
+}
+
+.info1 .icon {
+  font-size: 8em;
+  padding: 20px 0;
+  color: #e29c1b;
+}
+
+.signupForm {
+  width: 70%;
+  padding: 30px 0;
+  background: rgba(255, 255, 255, 0.8);
+  transition: .2s;
+}
+
+.signupForm h2 {
+  font-weight: 200;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.inputFields {
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 255px;
+  border: 1px solid #e29c1b;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(147, 152, 182, 0.2);
+  color: rgb(0, 0, 0);
+  outline: none;
+}
+
+.noBullet {
+  list-style-type: none;
+  padding: 0;
+}
+
+#join-btn {
+  text-transform: uppercase;
+  border: none;
+  background: #e29c1b;
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+#join-btn:hover {
+  background: rgba(20, 20, 20, 0.8);
+  padding: 10px 60px;
+}
+
+
+/*cart box - הוספה לסל*/
+
+.cartBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(147, 152, 182, 0.2);
+  z-index: 99999;
+  transition: 0.3s linear;
+  transform: scale(0);
+}
+
+.cartBox.active {
+  transform: scale(1);
+}
+
+.cartBox .cart {
+  position: relative;
+  height: 25vh;
+  width: 25%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  max-height: 40vh;
+  -webkit-overflow-scrolling: touch;
+  top: -32%;
+  left: 25%;
+}
+
+
+
+.cartBox .cart i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px 15px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 22px;
+  color: #e29c1b;
+}
+
+.cartBox .cart i:hover {
+  color: #362d2e;
+}
+
+.cartBox .cart h1 {
+  position: relative;
+  margin-top: 2%;
+  font-size: 26px;
+  color: #e29c1b;
+}
+
+
+
+.AddItems {
+  line-height: 30px;
+  margin-top: 3%;
+}
+
+.AddItems h5 {
+  font-size: 12px;
+}
+
+.AddItems h6 {
+  color: #9a9ca3;
+  font-size: 10px;
+}
+
+.AddItems a {
+  text-decoration: none;
+  color: #e29c1b;
+  border: none;
+  margin-top: 2%;
+}
+
+.AddItems a:hover {
+  color: #362d2e;
+  border: none;
+}
+
+@media (max-width: 1200px) {
+  .cartBox {
+    font-size: 12px;
+  }
+
+  .cartBox .cart {
+    width: 50%;
+    top: -33%;
+    left: 25%;
+  }
+
+  .cartBox .cart h1 {
+    font-size: 22px;
+  }
+
+  .cartBox .cart i {
+    font-size: 15px;
+  }
+}
+
+
+
