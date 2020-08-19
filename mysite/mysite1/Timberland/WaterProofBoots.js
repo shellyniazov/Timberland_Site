@@ -325,9 +325,7 @@ responsiveSlider();
 
 
 
-
 // מועדפים
-
 
 window.onload = function () {
 
@@ -348,9 +346,9 @@ window.onload = function () {
 		attToCartBtnZ[i].addEventListener("click", function (e) {
 			if (typeof (Storage) !== 'undefined') {
 				let itemZ = {
-					idZ: i + 900,
-					nameZ: e.target.parentElement.children[0].textContent,
-					priceZ: e.target.parentElement.children[1].children[0].textContent,
+					idZ: i + 700,
+					nameZ: e.target.parentElement.children[1].textContent,
+					priceZ: e.target.parentElement.children[2].textContent,
 					noZ: document.getElementById('number').value
 				};
 				if (JSON.parse(localStorage.getItem('itemsZ')) === null) {
@@ -382,12 +380,12 @@ window.onload = function () {
 	iconShoppingPZ.innerHTML = no1Z;
 
 
-	let cardBoxTableZ = cartBoxZ.querySelector('AddItems');
+	let cardBoxTableZ = cartBoxZ.querySelector('.AddItems');
 	let tableDataZ = '';
 
 
 	JSON.parse(localStorage.getItem('itemsZ')).map(data => {
-		tableDataZ += '<h6>' + data.id + '</h6><h5>' + data.name + '</h5><h5>' + 'quantity:' + ' ' + data.no + '</h5><h5>' + 'Price:' + ' ' + data.price + '</h5><h5>' + '<a href="#" <i class="far fa-trash-alt" onclick=Delete(this);></i></a></h5>' + '_________________________';
+		tableDataZ += '<h6>' + data.idZ + '</h6><h5>' + data.nameZ + '</h5><h5>' + 'quantity:' + ' ' + data.noZ + '</h5><h5>' + 'Price:' + ' ' + data.priceZ + '</h5><h5>' + '<a href="#" <i class="far fa-trash-alt" onclick=DeleteZX(this);></i></a></h5>' + '_________________________';
 	});
 
 	cardBoxTableZ.innerHTML = tableDataZ;
@@ -419,10 +417,10 @@ for (let i = 0; i < attToCartBtn.length; i++) {
 	attToCartBtn[i].addEventListener("click", function (e) {
 		if (typeof (Storage) !== 'undefined') {
 			let item = {
-				id: i + 900,
+				id: i + 705,
 				name: e.target.parentElement.children[0].textContent,
 				price: e.target.parentElement.children[1].children[0].textContent,
-        no: document.getElementById('number').value
+				no: document.getElementById('number').value
 			};
 			if (JSON.parse(localStorage.getItem('items')) === null) {
 				items.push(item);
@@ -462,10 +460,6 @@ JSON.parse(localStorage.getItem('items')).map(data => {
 });
 
 cardBoxTable.innerHTML = tableData;
-
-
-
-
 
 
 

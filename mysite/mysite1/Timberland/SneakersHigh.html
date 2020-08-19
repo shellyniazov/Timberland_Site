@@ -243,6 +243,7 @@
 
 
 
+
   <!--הוספה לסל רגיל-->
 
 
@@ -260,21 +261,21 @@
 
 
   <!--מועדפים-->
-
-
   <div class="cartBoxXX">
     <div class="cartVV">
       <p class="ixs">X</p>
-      <h1>WishList: </h1>
+      <h1>My WishList: </h1>
       <div class="AddItems">
-        <h4> </h4>
+        <h4></h4>
       </div>
     </div>
   </div>
 
 
 
-  <!--מחיקה מוצרים מסל הקניות-->
+
+
+  <!--מחיקה של פריטים בתוך הסל קניות-->
   <script>
     function Delete(e) {
       let items = [];
@@ -288,7 +289,22 @@
       localStorage.setItem('items', JSON.stringify(items));
       window.location.reload();
     };
+
+
+    function DeleteZX(x) {
+      let itemsZ = [];
+      JSON.parse(localStorage.getItem('itemsZ')).map(data => {
+        if (data.idZ != x.parentElement.parentElement.children[0].textContent) {
+
+          items.push(data);
+
+        }
+      });
+      localStorage.setItem('itemsZ', JSON.stringify(itemsZ));
+      window.location.reload();
+    };
   </script>
+
 
 
 
