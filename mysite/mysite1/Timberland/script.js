@@ -5,7 +5,7 @@ function PopUp(hideOrshow) {
 	else document.getElementById('ac-wrapper').removeAttribute('style');
 }
 window.onload = function () {
-	setTimeout(function () { //אחרי 5 שניות הפופ אפ אוטומטי נפתח לבד
+	setTimeout(function () { //אחרי 5 שניות הפופ אפ האוטומטי נפתח לבד
 		PopUp('show');
 	}, 5000);
 }

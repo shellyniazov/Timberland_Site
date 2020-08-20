@@ -543,7 +543,7 @@ input[type="text"] {
     align-items: center;
     text-align: center;
     margin-top: 5%;
-    margin-bottom: 7%;
+    margin-bottom: 2%;
 }
 
 
@@ -551,9 +551,6 @@ input[type="text"] {
 
 
 
-
-
-/* אופציות מגפיים */
 
 
 
@@ -1239,7 +1236,7 @@ font-size: 18px;
     overflow-y: scroll;
     max-height: 40vh;
     -webkit-overflow-scrolling: touch;
-    top: -29%;
+    top: -32%;
     left: 1%;
   }
   
@@ -1274,7 +1271,7 @@ font-size: 18px;
     .cartBoxXX .cartVV {
       width: 50%;
       top: -33%;
-      left: 25%;
+      left: 20%;
     }
   
     .cartBoxXX .cartVV h1 {
